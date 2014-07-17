@@ -1,0 +1,39 @@
+// JoshDrink -------------------------------------------------------------------
+
+  // Media Queries Template ----------------------------------------------------
+
+  // Authored by Josh Beveridge
+  // 2014/07
+
+  // Table of Contents ---------------------------------------------------------
+
+    // Desktop XL
+    // Desktop
+    // Tablet (Landscape)
+    // Tablet (Portrait)
+    // Phone (Landscape)
+    // Phone (Portrait)
+
+// Desktop XL ----------- 1280+ ------------------------------------------------
+
+  @include media(desktop-xl) {}
+
+// Desktop -------------- 1025-1280 --------------------------------------------
+
+  @include media(desktop) {}
+
+// Tablet (Landscape) --- 0769-1024 --------------------------------------------
+
+  @include media(tablet-landscape) {}
+
+// Tablet (Portrait) ---- 0641-0768 --------------------------------------------
+
+  @include media(tablet-portrait) {}
+
+// Phone (Landscape) ---- 0361-0640 --------------------------------------------
+
+  @include media(phone-landscape) {}
+
+// Phone (Portrait) ----- 0000-0360 --------------------------------------------
+
+  @include media(phone-portrait) {}

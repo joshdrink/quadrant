@@ -1,0 +1,266 @@
+// JoshDrink -------------------------------------------------------------------
+
+  // Quadrant Responsive Grid --------------------------------------------------
+
+  // Authored by: Josh Beveridge
+  // 2014/07
+
+  // Table of Contents ---------------------------------------------------------
+
+    // Style Resets
+    // Grid Style
+    // Positioning
+    // Media Queries
+
+// Style Resets ----------------------------------------------------------------
+
+  *,
+  *:before,
+  *:after {
+    margin: 0;
+    padding: 0;
+    position: relative;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+  }
+
+  // Sections ------------------------------------------------------------------
+
+    html, body {
+      height: 100%;
+    }
+    ul {
+      list-style: none;
+      margin: 0px;
+      padding: 0px;
+    }
+
+  // Typography ----------------------------------------------------------------
+
+    h1, h2, h3, h4, h5, p, a {
+      font-size: 1em;
+      margin: 0px;
+      padding: 0px;
+    }
+
+// Grid Style ------------------------------------------------------------------
+
+  // Using the grid
+
+  // Quadrant Padding
+
+    $quadrant-padding: 10px;
+
+  // Create a row
+  // Create as many DIVs as you need columns
+  // Assign them .column and a .col-X
+  // Quadrant uses a basic 12 column scheme
+
+  .row {
+    height: auto;
+    width: 100%;
+
+    &.total-collapse {
+      // Style
+
+      [class*='column'] {
+        padding: 0px;
+
+      }
+
+    }
+
+    &.edge-collapse {
+      // Style
+
+      &:first-child {
+        // Style
+
+        [class*='column'] {
+          padding-top: 0px;
+        }
+
+      }
+
+      &:last-child {
+        // Style
+
+        [class*='column'] {
+          padding-bottom: 0px;
+        }
+
+      }
+
+      [class*='column'] {
+        // Style
+
+        &:first-child {
+          padding-left: 0px;
+        }
+        &:last-child {
+          padding-right: 0px;
+        }
+
+      }
+
+    }
+
+    &:after {
+      content:"";
+      display: table;
+      clear: both;
+    }
+
+    // Column Style ----------------------------------------------------------
+
+      [class*='column'] {
+        float: left;
+        height: 100%;
+        padding: $quadrant-padding;
+        position: relative;
+      }
+
+      .col-1 {
+        width: 8.333333%;
+      }
+      .col-2 {
+        width: 16.666667%;
+      }
+      .col-3 {
+        width: 25%;
+      }
+      .col-4 {
+        width: 33.333333%;
+      }
+      .col-5 {
+        width: 41.666667%;
+      }
+      .col-6 {
+        width: 50%;
+      }
+      .col-7 {
+        width: 58.333333%;
+      }
+      .col-8 {
+        width: 66.666667%;
+      }
+      .col-9 {
+        width: 75%;
+      }
+      .col-10 {
+        width: 83.333333%;
+      }
+      .col-11 {
+        width: 91.666667%;
+      }
+      .col-12 {
+        width: 100%;
+      }
+
+      @mixin col-width($width) {
+        width: $width;
+      }
+
+  }
+
+// Layouts ---------------------------------------------------------------------
+
+  // Equalize: Forces the row to adopt the height of the assigned column.
+  .find-height {}
+  .force-height {}
+
+  // Nested: Forces nested rows to adopt the height of the parent column.
+  .nested-1 {
+    height: 100%;
+  }
+  .nested-2 {
+    height: 50%;
+  }
+  .nested-3 {
+    height: 33.333333%
+  }
+  .nested-4 {
+    height: 25%;
+  }
+
+  // Square: Forces a column's height to adopt its width.
+  .col-square {}
+
+// Positioning -----------------------------------------------------------------
+
+  .center {
+    position: relative;
+      left: 50%;
+      top: 50%;
+
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+  .vercenter {
+    position: relative;
+      top: 50%;
+
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  .horcenter {
+    position: relative;
+      left: 50%;
+
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
+
+// Media Queries ---------------------------------------------------------------
+
+  @mixin media($type) {
+
+    @if $type == desktop-xl {
+      @media (min-width: 1281px) {
+        @content;
+      }
+    }
+
+    @else if $type == desktop {
+  		@media (min-width: 1025px) {
+  			@content;
+  		}
+  	}
+
+  	@else if $type == tablet-landscape {
+  		@media (min-width: 769px) and (orientation: landscape) {
+  			@content;
+  		}
+  	}
+
+    @else if $type == tablet-portrait {
+      @media (min-width: 641px) and (orientation: portrait) {
+        @content;
+      }
+    }
+
+  	@else if $type == phone-landscape {
+  		@media (max-width: 361px) and (orientation: landscape) {
+  			@content;
+  		}
+  	}
+
+  	@else if $type == phone-portrait {
+  		@media (min-width: 0px) and (orientation: portrait) {
+  			@content;
+  		}
+  	}
+
+  }
